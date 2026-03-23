@@ -60,6 +60,13 @@ export function Flashcard({ wordData, onGrade, isQuizMode = false }: FlashcardPr
     setQuizState('idle')
   }, [wordData.word])
 
+  // Warm up the Speech Synthesis engine to prevent initial delay
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.speechSynthesis) {
+      window.speechSynthesis.getVoices();
+    }
+  }, [])
+
   return (
     <div className="w-full max-w-lg mx-auto perspective-1000">
       <motion.div
