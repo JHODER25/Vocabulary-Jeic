@@ -1,0 +1,22 @@
+-- seed_data.sql
+insert into public.words (word, meaning, phonetic, examples) values
+('the', 'Denoting one or more people or things already mentioned or assumed to be common knowledge.', '/ðə/', '["I read the book.", "The sun is shining."]'),
+('be', 'Exist or occur.', '/bi/', '["To be or not to be.", "I will be there."]'),
+('and', 'Used to connect words of the same part of speech, clauses, or sentences.', '/ænd/', '["Bread and butter.", "You and I."]'),
+('of', 'Expressing the relationship between a part and a whole.', '/ɒv/', '["The back of the house.", "A slice of pie."]'),
+('a', 'Used when mentioning someone or something for the first time.', '/ə/', '["I saw a dog.", "It is a nice day."]'),
+('in', 'Expressing the situation of something that is or appears to be enclosed or surrounded.', '/ɪn/', '["She is in the house.", "Living in peace."]'),
+('to', 'Expressing motion in the direction of a particular location.', '/tu/', '["Walk to the store.", "Talk to me."]'),
+('have', 'Possess, own, or hold.', '/hæv/', '["I have a car.", "They have no money."]'),
+('it', 'Used to refer to a thing previously mentioned or easily identified.', '/ɪt/', '["It is raining.", "I like it."]'),
+('I', 'The first person singular pronoun, used by a speaker to refer to himself or herself.', '/aɪ/', '["I am happy.", "I want to go."]'),
+('that', 'Used to identify a specific person or thing observed or heard by the speaker.', '/ðæt/', '["Look at that man.", "That is mine."]'),
+('for', 'In support of or in favor of.', '/fɔr/', '["This is for you.", "Vote for me."]'),
+('you', 'Used to refer to the person or people that the speaker is addressing.', '/ju/', '["Are you okay?", "I love you."]'),
+('he', 'Used to refer to a man, boy, or male animal previously mentioned.', '/hi/', '["He is my brother.", "Does he know?"]'),
+('with', 'Accompanied by (another person or thing).', '/wɪð/', '["Come with me.", "Coffee with milk."]'),
+('on', 'Physically in contact with and supported by (a surface).', '/ɒn/', '["The book is on the table.", "Hang it on the wall."]'),
+('do', 'Perform an action, the precise nature of which is often unspecified.', '/du/', '["What will you do?", "Do your homework."]'),
+('say', 'Utter words so as to convey information, an opinion, a feeling or intention.', '/seɪ/', '["What did he say?", "Say hello."]'),
+('this', 'Used to identify a specific person or thing close at hand.', '/ðɪs/', '["This is my house.", "Hold this."]'),
+('they', 'Used to refer to two or more people or things previously mentioned.', '/ðeɪ/', '["Where are they?", "They are coming."]');
