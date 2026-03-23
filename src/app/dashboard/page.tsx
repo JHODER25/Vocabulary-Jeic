@@ -18,11 +18,11 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
           const mode = formData.get('mode')
           const filter = formData.get('filter')
           redirect(`/dashboard?limit=${limit}&mode=${mode}&filter=${filter}`)
-        }} className="w-full space-y-8 bg-zinc-900 border border-zinc-800 p-8 rounded-2xl shadow-xl">
+        }} className="w-full space-y-6 md:space-y-8 bg-zinc-900 border border-zinc-800 p-5 md:p-8 rounded-2xl shadow-xl mb-12 md:mb-0">
           
           <div>
             <h3 className="text-lg font-semibold mb-3">1. Study Style</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <label className="cursor-pointer">
                 <input type="radio" name="mode" value="classic" className="peer sr-only" defaultChecked />
                 <div className="p-4 rounded-xl border border-zinc-700 peer-checked:border-indigo-500 peer-checked:bg-indigo-500/10 hover:bg-zinc-800 transition">
@@ -69,7 +69,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
           <div>
             <h3 className="text-lg font-semibold mb-3">3. Amount</h3>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4">
               <label className="cursor-pointer">
                 <input type="radio" name="limit" value="10" className="peer sr-only" defaultChecked />
                 <div className="p-3 text-center rounded-xl border border-zinc-700 peer-checked:border-indigo-500 peer-checked:bg-indigo-500/10 hover:bg-zinc-800 transition font-bold text-lg">10</div>

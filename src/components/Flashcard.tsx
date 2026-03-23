@@ -63,7 +63,7 @@ export function Flashcard({ wordData, onGrade, isQuizMode = false }: FlashcardPr
   return (
     <div className="w-full max-w-lg mx-auto perspective-1000">
       <motion.div
-        className={`w-full h-[420px] relative preserve-3d ${!isQuizMode || isFlipped ? 'cursor-pointer' : ''}`}
+        className={`w-full h-[380px] md:h-[420px] relative preserve-3d ${!isQuizMode || isFlipped ? 'cursor-pointer' : ''}`}
         animate={{ rotateX: isFlipped ? 180 : 0 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
         onClick={() => {
@@ -71,7 +71,7 @@ export function Flashcard({ wordData, onGrade, isQuizMode = false }: FlashcardPr
         }}
       >
         {/* Front */}
-        <div className={`absolute w-full h-full backface-hidden bg-zinc-900 border ${quizState === 'wrong' ? 'border-red-500 shadow-red-500/20' : quizState === 'correct' ? 'border-green-500 shadow-green-500/20' : 'border-zinc-700/50 shadow-2xl'} rounded-2xl flex flex-col p-8 ${!isQuizMode ? 'items-center justify-center' : ''}`}>
+        <div className={`absolute w-full h-full backface-hidden bg-zinc-900 border ${quizState === 'wrong' ? 'border-red-500 shadow-red-500/20' : quizState === 'correct' ? 'border-green-500 shadow-green-500/20' : 'border-zinc-700/50 shadow-2xl'} rounded-2xl flex flex-col p-6 md:p-8 ${!isQuizMode ? 'items-center justify-center' : ''}`}>
           <button 
             type="button"
             onClick={handleAudio}
@@ -82,20 +82,20 @@ export function Flashcard({ wordData, onGrade, isQuizMode = false }: FlashcardPr
 
           {!isQuizMode ? (
             <>
-              <h2 className="text-6xl font-black text-white tracking-tight mb-4 mt-auto">{wordData.word}</h2>
+              <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-4 mt-auto break-words text-center">{wordData.word}</h2>
               <span className="text-zinc-500 flex items-center gap-2 mt-auto self-center">
                 <RotateCw className="w-4 h-4" /> Tap to flip
               </span>
             </>
           ) : (
             <div className="flex flex-col h-full z-20 w-full">
-              <span className="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-6">Quiz Mode</span>
-              <div className="flex-1">
-                <h3 className="text-sm text-zinc-500 mb-2 font-bold">Meaning</h3>
-                <p className="text-lg text-zinc-300 italic">"{wordData.meaning}"</p>
+              <span className="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-4 md:mb-6">Quiz Mode</span>
+              <div className="flex-1 overflow-y-auto mb-2">
+                <h3 className="text-sm text-zinc-500 mb-1 font-bold">Meaning</h3>
+                <p className="text-base md:text-lg text-zinc-300 italic leading-snug">"{wordData.meaning}"</p>
               </div>
               
-              <form onSubmit={handleQuizSubmit} className="mt-auto w-full">
+              <form onSubmit={handleQuizSubmit} className="mt-auto w-full shrink-0">
                 <motion.input
                   animate={quizState === 'wrong' ? { x: [-10, 10, -10, 10, 0] } : {}}
                   transition={{ duration: 0.4 }}
@@ -105,7 +105,7 @@ export function Flashcard({ wordData, onGrade, isQuizMode = false }: FlashcardPr
                   value={quizState === 'wrong' ? wordData.word : quizInput}
                   onChange={(e) => setQuizInput(e.target.value)}
                   disabled={quizState !== 'idle'}
-                  className={`w-full bg-zinc-950 border-2 ${quizState === 'wrong' ? 'border-red-500 text-red-500' : quizState === 'correct' ? 'border-green-500 text-green-500' : 'border-zinc-800 focus:border-indigo-500 text-white'} rounded-xl p-4 text-2xl text-center font-bold outline-none mb-3 transition-colors`}
+                  className={`w-full bg-zinc-950 border-2 ${quizState === 'wrong' ? 'border-red-500 text-red-500' : quizState === 'correct' ? 'border-green-500 text-green-500' : 'border-zinc-800 focus:border-indigo-500 text-white'} rounded-xl p-3 md:p-4 text-xl md:text-2xl text-center font-bold outline-none mb-3 transition-colors`}
                 />
                 <div className="flex gap-3">
                   <button 
@@ -130,11 +130,11 @@ export function Flashcard({ wordData, onGrade, isQuizMode = false }: FlashcardPr
         </div>
 
         {/* Back */}
-        <div className="absolute w-full h-full backface-hidden bg-zinc-800 border border-indigo-500/30 rounded-2xl shadow-2xl p-8 flex flex-col rotate-x-180 overflow-y-auto z-10">
-          <div className="flex justify-between items-start mb-6">
+        <div className="absolute w-full h-full backface-hidden bg-zinc-800 border border-indigo-500/30 rounded-2xl shadow-2xl p-6 md:p-8 flex flex-col rotate-x-180 overflow-y-auto z-10">
+          <div className="flex justify-between items-start mb-4 md:mb-6">
             <div>
-              <h2 className="text-3xl font-bold text-white mb-1">{wordData.word}</h2>
-              <span className="text-indigo-300 font-mono text-lg">{wordData.phonetic}</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">{wordData.word}</h2>
+              <span className="text-indigo-300 font-mono text-base md:text-lg">{wordData.phonetic}</span>
             </div>
             <button 
               onClick={handleAudio}

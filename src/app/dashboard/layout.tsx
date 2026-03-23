@@ -59,8 +59,8 @@ export default async function DashboardLayout({ children }: { children: React.Re
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col overflow-hidden relative">
-        <header className="h-16 border-b border-zinc-800 flex items-center gap-3 px-6 md:hidden">
+      <main className="flex-1 flex flex-col overflow-hidden relative pb-16 md:pb-0">
+        <header className="h-16 border-b border-zinc-800 flex items-center gap-3 px-6 md:hidden bg-zinc-950 z-20">
             <Logo />
             <span className="font-bold text-lg">Vocab Jeic</span>
         </header>
@@ -70,6 +70,24 @@ export default async function DashboardLayout({ children }: { children: React.Re
         {/* Decorative background blob */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-20 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(79,70,229,0.5) 0%, rgba(0,0,0,0) 70%)' }}></div>
       </main>
+
+      {/* Mobile Bottom Navigation */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-zinc-950 border-t border-zinc-800 flex items-center justify-between px-2 z-50">
+        <Link href="/dashboard" className="flex flex-col items-center justify-center w-full h-full text-indigo-400">
+          <Home className="w-5 h-5 mb-1" />
+          <span className="text-[10px] font-bold">Practice</span>
+        </Link>
+        <Link href="/dashboard/stats" className="flex flex-col items-center justify-center w-full h-full text-zinc-500 hover:text-zinc-300 transition-colors">
+          <BarChart2 className="w-5 h-5 mb-1" />
+          <span className="text-[10px] font-bold tracking-wide">Stats</span>
+        </Link>
+        <form action={logout} className="w-full h-full">
+          <button className="flex flex-col items-center justify-center w-full h-full text-zinc-500 hover:text-red-400 transition-colors">
+            <LogOut className="w-5 h-5 mb-1" />
+            <span className="text-[10px] font-bold">Log out</span>
+          </button>
+        </form>
+      </div>
     </div>
   )
 }
