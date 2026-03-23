@@ -110,5 +110,6 @@ export async function submitReview({ wordId, quality, progressId }: { wordId: nu
     if (sErr) console.error("STATS INSERT ERROR:", sErr)
   }
 
-  revalidatePath('/dashboard')
+  // Using 'layout' revalidates all children routes including /dashboard/stats
+  revalidatePath('/dashboard', 'layout')
 }

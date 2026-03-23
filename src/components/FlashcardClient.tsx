@@ -7,15 +7,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 
 export default function FlashcardClient({ dueCards, isQuizMode = false }: { dueCards: any[], isQuizMode?: boolean }) {
-  const [cards, setCards] = useState(dueCards)
+  // State initializes ONLY ONCE per session. We ignore server prop updates mid-session to avoid layout thrashing.
+  const [cards] = useState(dueCards)
   const [currentIndex, setCurrentIndex] = useState(0)
-
-  useEffect(() => {
-    if (dueCards.length > 0 && (!cards.length || cards[0].word_id !== dueCards[0].word_id)) {
-      setCards(dueCards)
-      setCurrentIndex(0)
-    }
-  }, [dueCards])
 
   if (currentIndex >= cards.length) {
     return (
